@@ -1,0 +1,12 @@
+<%- include header%>
+ <%docs.forEach(function(doc, index){%>
+ <%if(doc.bookurl) {%>
+ <h3>书籍: <%= index+1%></h3>
+
+ <h3>书名: <%= doc.bookName.replace(".pdf","")%></h3>
+<img src="<%= doc.pic%>" width="200" height="250">
+<h3><a href="<%= doc.bookurl%>">在线阅览</a></h3>
+<h3>上传人: <%= doc.name%></h3>
+<%}%>
+<%})%>
+<%- include footer%>

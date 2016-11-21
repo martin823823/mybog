@@ -1,0 +1,95 @@
+<%- include header%>
+
+<!--<%docs.forEach(function(doc, index){%>-->
+<!--<%if(doc.Tvurl) {%>-->
+<!--<p><button id="containerMP4Btn<%= index%>">点击播放</button></p>-->
+<!--<div id="containerMP4<%= index%>" style="zoom:0.6;">-->
+    <!--<canvas width="368" height="640" style="background-color: rgb(51, 51, 51);"></canvas>-->
+<!--</div>-->
+<!--<script type="text/javascript" src="javascripts/mp4.js"></script>-->
+<!--<script type="text/javascript" src="javascripts/YUVCanvas.js"></script>-->
+<!--<script type="text/javascript" src="javascripts/stream.js"></script>-->
+<!--<script type="text/javascript" src="javascripts/Decoder.js"></script>-->
+<!--<script type="text/javascript" src="javascripts/Player.js"></script>-->
+<!--<script>-->
+    <!--var getIt<%= index%>= document.getElementById("containerMP4Btn<%= index%>");-->
+    <!--var getDiv<%= index%> = document.getElementById("containerMP4<%= index%>")-->
+    <!--getIt<%= index%>.onclick = function() {-->
+        <!--var player<%= index%> = new MP4Player(new Stream('//st.imququ.com/static/other/yiyi.mp4'), false, '', 'auto');-->
+        <!--player<%= index%>.play();-->
+        <!--getDiv<%= index%>.innerHTML = '';-->
+        <!--getDiv<%= index%>.appendChild(player<%= index%>.canvas);-->
+    <!--};-->
+<!--</script>-->
+<!--<%}%>-->
+<!--<%})%>-->
+
+<!--<p><button id="containerMP4Btn">点击播放</button></p>-->
+<!--<div id="containerMP4" style="zoom:0.6;">-->
+    <!--<canvas width="368" height="640" style="background-color: rgb(51, 51, 51);"></canvas>-->
+<!--</div>-->
+<!--<script src="javascripts/mp4.js" type="text/javascript"></script>-->
+<!--<script src="javascripts/YUVCanvas.js" type="text/javascript"></script>-->
+<!--<script src="javascripts/stream.js" type="text/javascript"></script>-->
+<!--<script src="javascripts/Decoder.js" type="text/javascript"></script>-->
+<!--<script src="javascripts/Player.js" type="text/javascript"></script>-->
+
+<!--<script>-->
+    <!--var getIt= document.getElementById("containerMP4Btn");-->
+    <!--var getDiv = document.getElementById("containerMP4")-->
+    <!--getIt.onclick = function() {-->
+        <!--var player = new MP4Player(new Stream('//st.imququ.com/static/other/yiyi.mp4'), false, '', 'auto');-->
+        <!--player.play();-->
+        <!--getDiv.innerHTML = '';-->
+        <!--getDiv.appendChild(player.canvas);-->
+    <!--};-->
+<!--</script>-->
+
+
+
+
+
+
+<p><button id="containerMP4Btn">点击播放</button></p>
+
+<div id="containerMP4" style="zoom:0.6;">
+    <canvas width="203" height="360" style="background-color: rgb(51, 51, 51);">
+    </canvas>
+</div>
+
+<script src="/javascripts/mp4_2.js" type="text/javascript"></script>
+
+<script>
+    var getIt= document.getElementById("containerMP4Btn");
+    var getDiv = document.getElementById("containerMP4");
+    getIt.onclick = function() {
+        var player = new MP4Player(new Stream('//7xt1fn.com1.z0.glb.clouddn.com/myTv/VID_20160418_232146.mp4'), false, '', 'auto');
+        player.play();
+        getDiv.innerHTML = '';
+        getDiv.appendChild(player.canvas);
+    };
+</script>
+
+<!--<%docs.forEach(function(doc,index){%>-->
+<!--<%if(doc.Tvurl) {%>-->
+<!--<video controls="" autoplay="" name="media">-->
+    <!--<source src="<%= doc.Tvurl%>">-->
+<!--</video>-->
+<!--<%}%>-->
+<!--<%})%>-->
+
+<!--<script type="text/javascript">-->
+    <!--(function load() {-->
+        <!--var nodes = document.querySelectorAll('div.broadway');-->
+        <!--for (var i = 0; i < nodes.length; i++) {-->
+            <!--var broadway = new Broadway(nodes[i]);-->
+            <!--// broadway.play();-->
+        <!--}-->
+    <!--})()-->
+<!--</script>-->
+
+
+
+<%- include footer%>
+
+

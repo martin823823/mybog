@@ -1,0 +1,36 @@
+
+
+<div class="panel-group" id="accordion">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h4 class="panel-title">
+                <a data-toggle="collapse" data-parent="#accordion"
+                   href="#collapseOne">
+                </a>
+            </h4>
+        </div>
+        <div id="collapseOne" class="panel-collapse collapse in">
+            <div class="panel-body">
+
+
+                <% posts.forEach(function (post, index) { %>
+                <%if(post.determine == "true") {%>
+                <hr/>
+                <p>
+                    <po>
+                </po>
+                <p>  评论人:<%- post.name%>
+                    日前: <%= post.tam2%>
+
+                </p>
+                <h5 class="love-li"><a style="text-decoration: none;" href=javascript:void(0)><i class="icon-star-empty"></i> 喜欢</a></h5>
+                <h5 class="love-li"><a style="text-decoration: none;" href=javascript:void(0)><i class="icon-pencil"></i> 评论: <%= sum%> 条</a></h5>
+                <%}%>
+                <% }) %>
+
+
+                <hr/>
+            </div>
+        </div>
+    </div>
+</div>

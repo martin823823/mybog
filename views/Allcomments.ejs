@@ -1,0 +1,13 @@
+<div class="jumbotron">
+  <%if(docs.comments) {%>
+    <%for(var i = 0; i < docs.comments.length; i++) {%>
+    <div class="jumbotron">
+        <p>第<%= i+1%>评论:</p>
+        <div class="jumbotron" style="background-color:whitesmoke"><h4><%= docs.comments[i]%></h4></div>
+        <div style="height: 18px"></div>
+        <p><span class="badge">评论人: <%= docs.Comnames[i]%></span> &nbsp;&nbsp;<span class="badge">评论时间: <%= docs.tam2[i]%></span></p>
+        <hr/>
+    </div>
+    <%}%>
+<%}%>
+</div>

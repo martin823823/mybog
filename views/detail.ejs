@@ -1,0 +1,43 @@
+<%- include header%>
+
+<div style="height: 6px"></div>
+
+<div class="jumbotron">
+    <div class="row">
+        <div class="col-sm-9">
+            <div class="page-header">
+                <h3>主题: &nbsp; &nbsp;<small><%= docs.title%></small></h3>
+            </div>
+            <hr/>
+            <div class="hero-unit" style="background-color: #cccccc;">
+                <div class="jumbotron" style="background-color:whitesmoke">&nbsp;<h4><%= docs.post%></h4></div>
+            </div>
+
+        </div>
+    </div>
+    <div style="height: 10px"></div>
+    <hr/>
+    <p style="margin-bottom: 1px; position: relative"><span class="badge">作者: <%= docs.name%></span>&nbsp;&nbsp;&nbsp; <span class="badge">发布时间: <%= docs.tam%></span></p>
+</div>
+
+<div style="height: 10px"></div>
+
+<%- include Allcomments%>
+
+<div style="height: 10px"></div>
+
+<hr/>
+
+
+<div class="jumbotron">
+    <form method="post">
+    <h3>评论</h3>
+    <p><textarea name="comment" rows="6" cols="60"></textarea></p>
+
+    <p>
+        <input class="btn btn-info" type="submit" value="评论">
+    </p>
+    </form>
+</div>
+
+<%- include footer%>

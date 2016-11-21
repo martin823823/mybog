@@ -1,0 +1,111 @@
+<%- include header%>
+
+
+<caption>最新电影</caption>
+
+
+<%data.forEach(function(item ,index) {%>
+<table class="table table-striped">
+    <thead>
+    <tr>
+        <th>电影</th>
+        <th>电影名字</th>
+        <th>评分</th>
+        <th>放映时间</th>
+        <th>时长</th>
+        <th>地区</th>
+        <th>导演</th>
+        <th>演员</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td>
+            <!-- 按钮触发模态框 -->
+            <button class="btn btn-primary btn-sm" data-toggle="modal"
+                    data-target="#myModal">
+                获取详情
+            </button>
+
+            <!-- 模态框（Modal） -->
+            <div class="modal fade" id="myModal" tabindex="-1" role="dialog"
+                 aria-labelledby="myModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close"
+                                    data-dismiss="modal" aria-hidden="true">
+                                &times;
+                            </button>
+                            <h4 class="modal-title" id="myModalLabel">
+                                电影详情
+                            </h4>
+
+                        </div>
+
+                        <div class="modal-body">
+                           <%= item.getM.movieId%>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default"
+                                    data-dismiss="modal">关闭
+                            </button>
+                            <button type="button" class="btn btn-primary">
+                                提交更改
+                            </button>
+                        </div>
+                    </div><!-- /.modal-content -->
+                </div><!-- /.modal -->
+            </div>
+
+        </td>
+        <td><img src="<%= item.moviePic%>" style="width: 133px; height: 200px"></td>
+        <td><a href="https://movie.douban.com/subject/<%= item.movieId%>/cinema/mianyang/" style="text-decoration: none;"><%= item.movieName%></a></td>
+        <td><%= item.movieScore%></td>
+        <td><%= item.movieYear%></td>
+        <td><%= item.movieTime%></td>
+        <td><%= item.movieRegion%></td>
+        <td><%= item.movieDirector%></td>
+        <td><%= item.movieActor%></td>
+    </tr>
+    <br>
+    </tbody>
+</table>
+
+<%})%>
+
+
+
+
+
+<script type="text/javascript">
+
+//    var getClass = document.getElementsByTagNameN("button");
+//
+//    var html = '<div class="modal fade" id="myModal" tabindex="-1" role="dialog"aria-labelledby="myModalLabel" aria-hidden="true">' +
+//    ' <div class="modal-dialog">' +
+//    '<div class="modal-content">' +
+//    '<div class="modal-header">' +
+//    '<button type="button" class="close"data-dismiss="modal" aria-hidden="true">' +
+//    ' &times;' +
+//    ' </button>' +
+//    '<h4 class="modal-title" id="myModalLabel">' +
+//    '电影详情' +
+//    '</h4>' +
+//    ' </div>' +
+//    ' <div class="modal-body">' +
+//    '</div>' +
+//    '<div class="modal-footer">' +
+//    '<button type="button" class="btn btn-default"data-dismiss="modal">' +
+//    '关闭' +
+//    '</button>' +
+//    ' <button type="button" class="btn btn-primary">' +
+//    ' 提交更改' +
+//    ' </button>' +
+//    '</div>' +
+//    '</div>' +
+//    '</div>' +
+//    '</div>'
+</script>
+
+<%- include footer%>

@@ -1,0 +1,93 @@
+<%- include header%>
+  <h3><%= title%></h3>
+
+<%if(docs) {%>
+<%docs.forEach(function(docs, index){%>
+<%if(docs.myUrl) {%>
+<div class="container">
+    <div class="row" >
+        <div class="col-xs-6 col-sm-3">
+            <div class="row">
+                <div class="col-sm-6 col-md-3">
+                    <div class="thumbnail span4">
+                        <img src="<%= docs.myUrl%>"
+                             alt="通用的占位符缩略图">
+                        <div class="caption">
+                            <h3>记录话语</h3><hr>
+                            <p>一起度过的那些日子: </p>
+                            <p>
+                                <button type="button" class="btn btn-primary" data-toggle="collapse"
+                                        data-target="#demo<%= index%>">
+                                    留言
+                                </button>
+
+                            <div id="demo<%= index%>" class="collapse in">
+                                    <div class="input-group">
+                                        <textarea name="recorder" id="content<%= index%>" class="form-control" rows="8" cols="40"></textarea><br>
+                                    </div>
+                                <a id="<%= docs._id%>" style="list-style-type: none;color: white" href="/personal" onclick="getUrlId(this.id, document.getElementById('content<%= index%>').value)"><button class="btn btn-info">留言</button></a>
+                            </div>
+
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-6 col-sm-3"
+             style="background-color: white;box-shadow:
+         inset 1px -1px 1px #444, inset -1px 1px 1px #444;">
+
+        </div>
+
+        <div class="clearfix visible-xs"></div>
+
+        <div class="col-xs-6 col-sm-3"
+             style="background-color: white;
+         box-shadow:inset 1px -1px 1px #444, inset -1px 1px 1px #444;">
+            <p>
+                一杯加了水的葡萄酒，已经不再醉人了，但还是闻得到清冽的酒香，它能把回忆染醉，
+                ....
+            </p>
+            <hr>
+            <h3>
+                <%if(docs.note) {%>
+                <%= docs.note%>
+                <%} else{%>
+                你还没有留言,赶快写下留言吧
+                <%}%>
+            </h3><hr>
+            <%if(docs.note) {%>
+            <h5>留言时间: <span class="badge"><%= docs.time%></span></h5>
+            <%}%>
+        </div>
+        <div class="col-xs-6 col-sm-3"
+             style="background-color: #dedef8;box-shadow:
+         inset 1px -1px 1px #444, inset -1px 1px 1px #444;">
+
+        </div>
+    </div>
+</div>
+<%}%>
+<%})%>
+
+<%}%>
+
+<script type="text/javascript">
+    function getUrlId(urlID, content) {
+        console.log(urlID);
+        var data = {"urlId": urlID, "content":content};
+        $.ajax({
+           url: '/personal',
+            type:  'post',
+            data: data,
+            success: function(data, status) {
+
+            },
+            error: function(data, status) {
+
+            }
+        });
+        }
+</script>
+<%- include footer%>

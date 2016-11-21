@@ -1,0 +1,64 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/xhtml-transitional.dtd">
+<html>
+<head>
+
+    <meta charset="utf-8">
+    <script src="/javascripts/jquery-2.1.1.min.js" type="text/javascript"></script>
+    <script src="/javascripts/jquery.js" type="text/javascript"></script>
+    <link href="/stylesheets/bootstrap.min.css" rel="stylesheet" media="screen">
+    <link href="css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
+    <link href="/stylesheets/bootstrap.css" rel="stylesheet" media="screen">
+    <link href="/stylesheets/bootstrap.css.map" rel="stylesheet" media="screen">
+    <script src="/javascripts/bootstrap.min.js" type="text/javascript"></script>
+    <script src="/javascripts/bootstrap.js" type="text/javascript"></script>
+    <script src="bootstrap-hover-dropdown/twitter-bootstrap-hover-dropdown.min.js" type="text/javascript" ></script>
+    <script src="/javascript/chLove.js"></script>
+
+    <link rel='stylesheet' href='/stylesheets/bootstrap.css' />
+
+    <style type='text/css'>
+        body{
+            padding-top:60px;
+            padding-bottom:40px
+        }
+        .logo {
+            font-family: @font-family-sans-serif;
+            font-size: 40px;
+            margin: 0px 0px ;
+            position: relative;
+        }
+        .li-1{
+        font-size: 18px
+        }
+        .header-li{
+            margin-left: 10px;
+            margin-top: 0px;
+        }
+    </style>
+    <link rel='stylesheet' href='/stylesheets/bootstrap-responsive.css' />
+</head>
+<div class="header-li">
+
+            <!--<div>-->
+                <!--<ul class="page-sidebar-menu">-->
+                   <!--<li><a href="/"><i class="icon-tasks"></i> 首页</a></li>-->
+                    <!--<li><a href="/logout">退出</a></li>-->
+
+                <!--</ul>-->
+            <!--</div>-->
+</div>
+<div id="container" class="container ">
+       <div class="body-li">
+       <%- body %>
+        </div>
+
+    <%if(user) {%>
+    <footer>
+        <p><a href="#" target="_blank">MARTIN BO <label class="logo">MBO</label></a></p>
+    </footer>
+    <%}%>
+</div>
+</body>
+<script src="/javascripts/jquery.js"></script>
+<script src="/javascripts/bootstrap.js"></script>
+</html>

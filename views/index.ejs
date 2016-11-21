@@ -1,0 +1,124 @@
+
+<%- include header %>
+
+<div style="height: 8px"></div>
+
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">
+           分类导航
+        </h3>
+    </div>
+    <div class="panel-body">
+       <h2>
+           <a href="" style="text-decoration: none;"><span class="label label-default">javascript</span></a>&nbsp;&nbsp;&nbsp;
+        <a href="" style="text-decoration: none;"><span class="label label-primary">java</span></a>&nbsp;&nbsp;&nbsp;
+        <a href="" style="text-decoration: none;"><span class="label label-success">node</span></a>&nbsp;&nbsp;&nbsp;
+        <a href=""style="text-decoration: none;"><span class="label label-default">html</span></a>&nbsp;&nbsp;&nbsp;
+        <a href=""style="text-decoration: none;"><span class="label label-warning">css</span></a>&nbsp;&nbsp;&nbsp;
+        <a href="/getMovies" style="text-decoration: none;" onclick=""><span class="label label-info">获取电影</span></a>&nbsp;&nbsp;&nbsp;
+        <a href="/movie" style="text-decoration: none;"><span class="label label-info">电影</span></a>&nbsp;&nbsp;&nbsp;
+        <a href="/personal"style="text-decoration: none;"><span class="label label-warning">图片</span></a>&nbsp;&nbsp;&nbsp;
+        <a href="/Dowbooks"style="text-decoration: none;"><span class="label label-success">书籍</span></a>&nbsp;&nbsp;&nbsp;<hr>
+        <a href="/showTv"style="text-decoration: none;"><span class="label label-success">微拍视频</span></a>
+
+       </h2>
+    </div>
+
+</div>
+
+
+
+<div>
+
+    <div style="float: left; width: 250px; height: 500px">
+<div style="height: 8px" ></div>
+
+        <div class="panel panel-default"style="float: left; width: 250px; height: 500px" >
+            <div class="panel-heading" style="height: 170px">
+                <h3 class="panel-title">
+                    书籍上传:
+                    <form enctype="multipart/form-data" method="post" action='/BOOK'>
+                        <input type="file" name="books">
+                        <input type="submit" value="上传">
+                    </form>
+                </h3>
+            </div>
+            <div class="panel-body">
+              <h4>图片上传:
+                <form enctype="multipart/form-data" method="post" action='/image'>
+                    <input type="file" name="image">
+                    <input type="submit" value="上传">
+                </form>
+              </h4>
+            </div>
+        </div>
+
+        </div>
+    <div style="float: right">
+ <% posts.forEach(function (post, index, array) { %>
+        <%if(user) {%>
+         <div style="height: 10px"></div>
+        <%if(post.status == true){%>
+        <div class="jumbotron" style="width: 850px;height: 270px">
+        <p><h3 style="margin-top: 5px">日记:
+        <a style="text-decoration: none;" href="/detail/<%= post._id%>"> <%= post.title %></a></h3></p>
+            <hr/>
+            <!--<div class="jumbotron" style="background-color:whitesmoke">-->
+           <!--<h4> <%- post.post %></h4>-->
+                <!--</div>-->
+            <!--<hr/>-->
+    <p class="info">
+        发布日期：<span class="badge"><%= post.tam%></span><br>
+        访问次数: <span class="badge"><%= post.PV%></span><br><hr>
+        <i class="icon-star-empty"><span class="badge"><a id="<%= post._id%>" style="list-style-type: none;color: white" href="/" onclick="like(this.id)">喜欢 <span class="badge"><%= post.likeNum%></span></a></span></i>
+    </p>
+    </p>
+            <div style="height: 10px">
+    </div>
+    </div>
+
+<%}%>
+<%}%>
+<% }) %>
+        <%if(user) {%>
+        <a href="/1">查看全部</a>
+        <%}%>
+    </div>
+
+</div>
+
+<script src="http://zeptojs.com/zepto-docs.min.js"></script>
+<script src="../douban.js"></script>
+
+<script type="text/javascript">
+         function like(articalId) {
+             console.log(articalId);
+             var data = {"itemId": articalId};
+                //alert(aid + " was clicked.");
+             $.ajax({
+                 url: '/like',
+                 type: 'POST',
+                 data:  data,
+                 success: function(data, status) {
+
+                 },
+                 error: function(data, status) {
+
+                 }
+             });
+            }
+
+</script>
+
+<script>
+        function getMovie() {
+
+        }
+</script>
+
+<%- include footer %>
+
+
+

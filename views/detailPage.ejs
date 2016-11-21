@@ -1,0 +1,65 @@
+<%- include header%>
+<% posts.forEach(function (post, index, array) { %>
+<%if(user) {%>
+<div style="height: 10px"></div>
+<%if(post.status == true){%>
+<div class="jumbotron" style="width: 850px;height: 330px">
+    <h3>日记</h3>
+    <hr/>
+    <p><h2><a style="text-decoration: none;" href="/detail/<%= post._id%>"> <%= post.title %></a></h2></p>
+    <!--<div class="jumbotron" style="background-color:whitesmoke">-->
+        <!--<h4> <%- post.post %></h4>-->
+    <!--</div>-->
+    <!--<hr/>-->
+    <p class="info">
+        发布日期：<span class="badge"><%= post.tam%></span><br>
+        访问次数: <span class="badge"><%= post.PV%></span><br><hr>
+    <i class="icon-star-empty"><span class="badge"><a id="<%= post._id%>" style="list-style-type: none;color: white" href="/" onclick="like(this.id)">喜欢 <span class="badge"><%= post.likeNum%></span></a></span></i>
+    </p>
+    </p>
+    <div style="height: 10px">
+    </div>
+</div>
+
+<%}%>
+<%}%>
+<% }) %>
+
+<ul class="pagination">
+    <li><a href="/1">&laquo;</a></li>
+    <%if(arNumber%2==0) {%>
+    <%for(var i =1 ; i < arNumber/3+1; i++) {%>
+
+    <li><a href="/<%= i%>"><%= i%></a></li>
+    <%}%>
+    <li><a href="/<%= arNumber/3%>">&raquo;</a></li>
+    <%}%>
+
+    <%if(arNumber%2 !==0) {%>
+    <%for(var i =1 ; i < arNumber/3+1; i++) {%>
+
+    <li><a href="/<%= i%>"><%= i%></a></li>
+    <%}%>
+    <li><a href="/<%= arNumber/3+1%>">&raquo;</a></li>
+    <%}%>
+
+</ul>
+
+<script type="text/javascript">
+    function like(articalId) {
+        var data = {"itemId": articalId};
+        //alert(aid + " was clicked.");
+        $.ajax({
+            url: '/like',
+            type: 'post',
+            data:  data,
+            success: function(data, status) {
+
+            },
+            error: function(data, status) {
+
+            }
+        });
+    }
+</script>
+<%- include footer%>

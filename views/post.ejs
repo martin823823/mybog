@@ -1,0 +1,10 @@
+<%- include header %>
+<form method="post">
+    <h3><span class="label label-default">标题</span></h3>
+    <input type="text" name="title" /><br /><hr/>
+    <p><h3><span class="label label-default">内容</span></h3>&nbsp;&nbsp;<h3>发布时间: <span class="badge"><%= Postdate%></span></h3></p>
+    <textarea name="post" rows="20" cols="100"></textarea><br /><hr/>
+   <button type="submit" class="btn btn-primary">提交</button>
+</form>
+<%- include footer %>
+
